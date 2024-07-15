@@ -128,7 +128,7 @@ void YOLOV8::initialmodel() {
     ppp.input().model().set_layout("NCHW");
     ppp.output().tensor().set_element_type(ov::element::f32);
     model = ppp.build();
-    this->compiled_model = core.compile_model(model, "CPU");
+    this->compiled_model = core.compile_model(model, "NPU");
     this->infer_request = compiled_model.create_infer_request();
 }
 
