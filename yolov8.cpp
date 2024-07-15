@@ -174,7 +174,7 @@ void YOLOV8::postprocess_img(Mat& frame, float* detections, ov::Shape & output_s
 
     for (int i = 0; i < det_output.cols; ++i) {
 
-        const cv::Mat classes_scores = det_output.col(i).rowRange(4,84);
+        const cv::Mat classes_scores = det_output.col(i).rowRange(4, out_rows);
         cv::Point class_id_point;
         double score;
         cv::minMaxLoc(classes_scores, nullptr, &score, nullptr, &class_id_point);
